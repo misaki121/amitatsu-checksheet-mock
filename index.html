@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>船長チェックシート モック一覧</title>
+<link rel="stylesheet" href="_theme.css">
+<style>
+  body{padding:24px;max-width:980px;margin:0 auto;}
+  h1{color:var(--accent);margin:0 0 4px;font-size:22px;}
+  .lead{color:var(--muted);margin:0 0 24px;font-size:13px;}
+  h2{font-size:15px;color:var(--ink);border-left:4px solid var(--accent);padding-left:10px;margin:24px 0 12px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
+  .card{background:var(--bg-card);border:1px solid var(--line);border-radius:10px;overflow:hidden;text-decoration:none;color:var(--ink);display:block;transition:transform .12s;}
+  .card:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(139,46,46,.12);}
+  .card .label{background:var(--accent);color:#fff;padding:8px 12px;font-weight:700;font-size:13px;display:flex;justify-content:space-between;align-items:center;}
+  .card .label .dev{background:rgba(255,255,255,.22);font-size:10px;padding:2px 6px;border-radius:3px;}
+  .card .body{padding:12px;font-size:12px;color:var(--muted);min-height:62px;}
+  .card .body strong{display:block;color:var(--ink);font-size:13px;margin-bottom:3px;font-weight:600;}
+  .flow{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;margin:6px 0 10px;}
+  .flow-arrow{color:var(--accent);font-weight:700;}
+  .legend{margin-top:32px;padding:14px;background:#FBF5EC;border:1px solid var(--line);border-radius:8px;font-size:12px;color:var(--hint-text);line-height:1.7;}
+  .legend strong{color:var(--accent);}
+  code{background:rgba(0,0,0,.04);padding:1px 4px;border-radius:3px;font-size:11px;}
+</style>
+</head>
+<body>
+<h1>船長チェックシート モック一覧</h1>
+<p class="lead">各画面はクリック導線で繋がっています。下記の2つのフローでお試しください。</p>
+
+<h2>フロー① 評価入力（評価担当・スマホ）</h2>
+<div class="flow"><span>① 入力</span><span class="flow-arrow">→</span><span>② 送信ボタン</span><span class="flow-arrow">→</span><span>③ 完了モーダル</span><span class="flow-arrow">→</span><span>④ 新規入力</span></div>
+<div class="grid">
+  <a class="card" href="form.html">
+    <div class="label">評価入力フォーム<span class="dev">スマホ</span></div>
+    <div class="body"><strong>SC-01 / SC-02</strong>11セクションに観点表示＋備考1欄。送信ボタンで完了モーダル。</div>
+  </a>
+</div>
+
+<h2>フロー② 管理画面（管理者・PC）</h2>
+<div class="flow"><span>① ログイン</span><span class="flow-arrow">→</span><span>② 提出一覧</span><span class="flow-arrow">→</span><span>③ マスタ管理 / PDF出力</span><span class="flow-arrow">→</span><span>④ ログアウト</span></div>
+<div class="grid">
+  <a class="card" href="login.html">
+    <div class="label">管理画面ログイン<span class="dev">PC</span></div>
+    <div class="body"><strong>SC-05</strong>パスワード入力（モックは何でも通過）→ 提出一覧へ。</div>
+  </a>
+  <a class="card" href="admin-list.html">
+    <div class="label">管理：提出一覧<span class="dev">PC</span></div>
+    <div class="body"><strong>SC-07</strong>期間・新人船長・評価担当・船名で絞込。PDFボタンで1提出PDF出力。</div>
+  </a>
+  <a class="card" href="admin-master.html">
+    <div class="label">管理：マスタ管理<span class="dev">PC</span></div>
+    <div class="body"><strong>SC-06</strong>新人船長／船名／桟橋／評価担当の追加・並び替え・非表示・削除。</div>
+  </a>
+  <a class="card" href="pdf-single-1page.html">
+    <div class="label">PDF（1提出・A4縦）<span class="dev">PDFプレビュー</span></div>
+    <div class="body"><strong>F-15</strong>2列1ページ収め・評価担当コメントを目立たせたレポート型。</div>
+  </a>
+</div>
+
+<div class="legend">
+  <strong>色テーマ：</strong> ベージュ <code>#F5EFE6</code> ／ 深紅 <code>#8B2E2E</code> ／ 茶ヒント <code>#A0522D</code><br>
+  <strong>用語：</strong> 新人船長＝評価される船長／評価担当＝評価する人／管理者＝管理画面利用者<br>
+  <strong>クリック導線：</strong> 各画面のボタン・リンクは隣接画面に遷移します（モック動作なので保存・認証はしません）<br>
+  <strong>気になる点があれば：</strong>「もっと文字大きく」「ボタンの位置変えて」「PDFの順序変えて」等、口頭でご指摘ください
+</div>
+</body>
+</html>

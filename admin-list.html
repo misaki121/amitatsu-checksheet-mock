@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>管理画面：提出一覧 モック</title>
+<link rel="stylesheet" href="_theme.css">
+<style>
+  body{font-size:13.5px;}
+  .topbar{background:var(--accent);color:#fff;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;}
+  .topbar .title{font-weight:700;font-size:16px;}
+  .topbar nav a{color:#fff;text-decoration:none;margin-left:18px;font-size:13px;opacity:.9;}
+  .topbar nav a.active{font-weight:700;opacity:1;border-bottom:2px solid #fff;padding-bottom:4px;}
+  .topbar .logout{background:rgba(255,255,255,.15);padding:5px 12px;border-radius:4px;font-size:12px;}
+  .container{padding:20px;max-width:1280px;margin:0 auto;}
+  .filter{background:var(--bg-card);border:1px solid var(--line);border-radius:8px;padding:16px;margin-bottom:16px;}
+  .filter h2{margin:0 0 12px;font-size:14px;color:var(--accent);}
+  .filter .row{display:grid;grid-template-columns:repeat(5,1fr) auto;gap:12px;align-items:end;}
+  .filter .field label{display:block;font-size:11px;color:var(--muted);margin-bottom:4px;}
+  .filter .field input,.filter .field select{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:#fff;font-size:13px;}
+  .filter .field.period{display:flex;gap:6px;align-items:center;}
+  .filter .field.period input{flex:1;}
+  .btn-search{background:var(--accent);color:#fff;border:none;padding:9px 22px;border-radius:6px;font-weight:700;font-size:13px;}
+  .btn-clear{background:#fff;color:var(--ink);border:1px solid var(--line);padding:9px 14px;border-radius:6px;font-size:13px;margin-left:6px;}
+
+  .result-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:12px;color:var(--muted);}
+  .result-meta .export button{background:#fff;border:1px solid var(--line);padding:5px 12px;border-radius:4px;font-size:12px;margin-left:6px;}
+
+  table{width:100%;border-collapse:collapse;background:var(--bg-card);border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:12.5px;}
+  th{background:#EFE3D2;color:var(--ink);padding:9px 10px;text-align:left;font-weight:700;font-size:12px;border-bottom:1px solid var(--line);white-space:nowrap;}
+  td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tr:hover td{background:#FBF5EC;}
+  tr:last-child td{border-bottom:none;}
+  td.center{text-align:center;}
+  td.biko{max-width:300px;color:var(--muted);font-size:12px;line-height:1.4;}
+  .pdf-btn{background:var(--accent);color:#fff;border:none;padding:4px 10px;border-radius:4px;font-size:11px;cursor:pointer;}
+  .pdf-btn.summary{background:#fff;color:var(--accent);border:1px solid var(--accent);}
+  .pager{display:flex;justify-content:center;gap:6px;margin-top:14px;font-size:12px;}
+  .pager span,.pager a{padding:6px 10px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--ink);text-decoration:none;}
+  .pager span.cur{background:var(--accent);color:#fff;border-color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="tag-mock">MOCK / PC 1280幅想定</div>
+
+<div class="topbar">
+  <div class="title">船長チェックシート 管理画面</div>
+  <nav>
+    <a href="admin-list.html" class="active">提出一覧</a>
+    <a href="admin-master.html">マスタ管理</a>
+  </nav>
+  <a class="logout" href="login.html" style="text-decoration:none;color:#fff;">ログアウト</a>
+</div>
+
+<div class="container">
+
+  <div class="filter">
+    <h2>絞り込み</h2>
+    <div class="row">
+      <div class="field period">
+        <div style="flex:1"><label>期間 (開始)</label><input type="date" value="2026-05-01"></div>
+        <div style="padding-bottom:7px;color:var(--muted);">〜</div>
+        <div style="flex:1"><label>　　 (終了)</label><input type="date" value="2026-05-27"></div>
+      </div>
+      <div class="field"><label>新人船長（評価される人）</label>
+        <select><option>全て</option><option>飯野</option><option>古村</option><option>小川</option></select>
+      </div>
+      <div class="field"><label>評価担当（評価する人）</label>
+        <select><option>全て</option><option>もりお</option><option>上野</option></select>
+      </div>
+      <div class="field"><label>船名</label>
+        <select><option>全て</option><option>大和</option><option>瑞宝</option></select>
+      </div>
+      <div class="field"></div>
+      <div><button class="btn-search">検索</button><button class="btn-clear">クリア</button></div>
+    </div>
+  </div>
+
+  <div class="result-meta">
+    <div>該当 <strong style="color:var(--accent);font-size:14px;">18</strong> 件 / 全 312 件</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>提出日時</th>
+        <th>評価日</th>
+        <th>新人船長</th>
+        <th>船名</th>
+        <th>乗船</th>
+        <th>降船</th>
+        <th>評価担当</th>
+        <th class="center">PDF</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2026/05/26 19:42</td>
+        <td>2026/05/26</td>
+        <td>飯野</td><td>大和</td><td>一之江</td><td>吾妻橋</td><td>もりお</td>
+        <td class="center"><button class="pdf-btn" onclick="window.open('pdf-single-1page.html','_blank')">📄 PDF</button></td>
+      </tr>
+      <tr>
+        <td>2026/05/26 14:10</td>
+        <td>2026/05/26</td>
+        <td>古村</td><td>瑞宝</td><td>桜橋</td><td>お台場</td><td>上野</td>
+        <td class="center"><button class="pdf-btn" onclick="window.open('pdf-single-1page.html','_blank')">📄 PDF</button></td>
+      </tr>
+      <tr>
+        <td>2026/05/25 21:18</td>
+        <td>2026/05/25</td>
+        <td>小川</td><td>ひので</td><td>越中島</td><td>日の出</td><td>大森</td>
+        <td class="center"><button class="pdf-btn" onclick="window.open('pdf-single-1page.html','_blank')">📄 PDF</button></td>
+      </tr>
+      <tr>
+        <td>2026/05/25 17:00</td>
+        <td>2026/05/25</td>
+        <td>木山</td><td>サスケ</td><td>有明</td><td>竹芝</td><td>坪井</td>
+        <td class="center"><button class="pdf-btn" onclick="window.open('pdf-single-1page.html','_blank')">📄 PDF</button></td>
+      </tr>
+      <tr>
+        <td>2026/05/24 20:35</td>
+        <td>2026/05/24</td>
+        <td>藤田</td><td>あづま</td><td>一之江</td><td>晴海</td><td>宮城</td>
+        <td class="center"><button class="pdf-btn" onclick="window.open('pdf-single-1page.html','_blank')">📄 PDF</button></td>
+      </tr>
+      <tr>
+        <td>2026/05/24 13:22</td>
+        <td>2026/05/24</td>
+        <td>翔</td><td>634</td><td>両国</td><td>お台場</td><td>岡</td>
+        <td class="center"><button class="pdf-btn" onclick="window.open('pdf-single-1page.html','_blank')">📄 PDF</button></td>
+      </tr>
+      <tr>
+        <td>2026/05/23 19:00</td>
+        <td>2026/05/23</td>
+        <td>長谷川</td><td>えびす</td><td>吾妻橋</td><td>一之江</td><td>越川</td>
+        <td class="center"><button class="pdf-btn" onclick="window.open('pdf-single-1page.html','_blank')">📄 PDF</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pager">
+    <a href="#">«</a>
+    <span class="cur">1</span>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">»</a>
+  </div>
+
+</div>
+</body>
+</html>

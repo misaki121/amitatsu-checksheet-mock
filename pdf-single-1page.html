@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>PDF（1提出・1ページ収め）モック</title>
+<link rel="stylesheet" href="_theme.css">
+<style>
+  body{background:#888;padding:30px 0;}
+  .a4{
+    width:210mm;
+    height:297mm;
+    margin:0 auto;
+    background:#fff;
+    color:#222;
+    box-shadow:0 8px 30px rgba(0,0,0,.3);
+    padding:14mm 12mm 12mm;
+    font-family:"Yu Gothic","Hiragino Sans","Meiryo",sans-serif;
+    font-size:9pt;
+    line-height:1.45;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+  }
+  .pdf-head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2.5px solid var(--accent);padding-bottom:5px;margin-bottom:7px;}
+  .pdf-head .left .brand{color:var(--muted);font-size:8pt;letter-spacing:.1em;}
+  .pdf-head .left h1{margin:1px 0 0;font-size:15pt;color:var(--accent);letter-spacing:.05em;}
+  .pdf-head .right{text-align:right;font-size:8pt;color:var(--muted);}
+  .pdf-head .right strong{display:block;color:var(--ink);font-size:9.5pt;margin-top:1px;}
+
+  .meta-table{width:100%;border-collapse:collapse;margin-bottom:8px;font-size:8.5pt;}
+  .meta-table th{background:#EFE3D2;border:1px solid var(--line);padding:3px 6px;text-align:left;font-weight:700;width:11%;color:var(--ink);}
+  .meta-table td{border:1px solid var(--line);padding:3px 6px;width:22%;}
+
+  .grid2{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:4mm 5mm;align-content:start;}
+  .section{break-inside:avoid;display:flex;flex-direction:column;min-height:0;}
+  .section-head{background:var(--accent);color:#fff;padding:2.5px 7px;font-weight:700;font-size:8.5pt;display:flex;align-items:center;gap:5px;}
+  .section-head .num{background:rgba(255,255,255,.25);border-radius:999px;width:14px;height:14px;display:inline-flex;align-items:center;justify-content:center;font-size:7.5pt;}
+  .section-body{border:1px solid var(--line);border-top:none;padding:3px 6px 4px;flex:1;display:flex;flex-direction:column;}
+  .observations{font-size:7.5pt;color:var(--muted);margin:0 0 3px;padding-left:.9em;line-height:1.3;}
+  .comment-wrap{flex:1;border:1px solid var(--accent);background:#FDF7F0;padding:3px 6px;border-radius:2px;}
+  .comment-wrap .label{font-size:7pt;color:var(--accent);font-weight:700;letter-spacing:.08em;margin-bottom:1px;}
+  .comment-wrap .body{font-size:8.5pt;line-height:1.4;color:#222;white-space:pre-wrap;}
+  .comment-wrap.empty .body{color:#BBB;font-style:italic;}
+
+  .footer-remarks{margin-top:6px;border:1px solid var(--line);padding:5px 8px;background:#FBFAF7;}
+  .footer-remarks .label{font-size:7.5pt;color:var(--muted);margin-bottom:2px;font-weight:700;}
+  .footer-remarks .body{font-size:8.5pt;line-height:1.4;}
+
+  .pdf-foot{margin-top:4px;border-top:1px solid var(--line);padding-top:3px;display:flex;justify-content:space-between;font-size:7pt;color:var(--muted);}
+</style>
+</head>
+<body>
+<div class="tag-mock">MOCK / A4縦・1ページ収め（2列）</div>
+
+<div class="a4">
+
+  <div class="pdf-head">
+    <div class="left">
+      <div class="brand">AMITATSU / 屋形船あみ達</div>
+      <h1>船長業務 評価レポート</h1>
+    </div>
+    <div class="right">提出日時<br><strong>2026/05/26 19:42</strong></div>
+  </div>
+
+  <table class="meta-table">
+    <tr><th>評価日</th><td>2026/05/26（火）</td><th>新人船長</th><td>飯野</td><th>評価担当</th><td>もりお</td></tr>
+    <tr><th>船名</th><td>大和</td><th>乗船</th><td>一之江</td><th>降船</th><td>吾妻橋</td></tr>
+  </table>
+
+  <div class="grid2">
+
+    <div class="section">
+      <div class="section-head"><span class="num">1</span>出船前準備</div>
+      <div class="section-body">
+        <div class="comment-wrap">
+          <div class="body">点検簿の項目が1件抜けていた（電源確認の漏れ）。朝礼での潮位共有は丁寧。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head"><span class="num">2</span>船長とお客さんの関わり方</div>
+      <div class="section-body">
+        <div class="comment-wrap">
+          <div class="body">乗船時お子様連れに自然に手を差し伸べていた。走行中の声掛けも◎。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head"><span class="num">3</span>7航海点検</div>
+      <div class="section-body">
+        <div class="comment-wrap empty">
+          <div class="body">（記入なし）</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head"><span class="num">4</span>離岸着岸</div>
+      <div class="section-body">
+        <div class="comment-wrap">
+          <div class="body">強い南風で2回切り返して着岸できた。スラスター少し多め。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head"><span class="num">5</span>航行ルート</div>
+      <div class="section-body">
+        <div class="comment-wrap">
+          <div class="body">問題なし。他船との距離感も◎。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head"><span class="num">6</span>荒川の横断</div>
+      <div class="section-body">
+        <div class="comment-wrap empty">
+          <div class="body">（記入なし）</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head"><span class="num">7</span>潮位認識</div>
+      <div class="section-body">
+        <div class="comment-wrap">
+          <div class="body">仮設足場の状況判断◎。船員への指示も的確。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head"><span class="num">8</span>航行速度と引き波</div>
+      <div class="section-body">
+        <div class="comment-wrap">
+          <div class="body">徐行タイミングがやや遅い。次回意識するよう伝達。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head"><span class="num">9</span>お台場停泊・入港出港</div>
+      <div class="section-body">
+        <div class="comment-wrap">
+          <div class="body">停泊位置◎。お客様から好評。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head"><span class="num">10</span>桟橋着岸</div>
+      <div class="section-body">
+        <div class="comment-wrap">
+          <div class="body">問題なし。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head"><span class="num">11</span>一之江帰船後</div>
+      <div class="section-body">
+        <div class="comment-wrap">
+          <div class="body">確認OK。異常無し。</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-remarks">
+    <div class="label">全体備考</div>
+    <div class="body">本日は風強め。全体的に安全運航を意識できていた。次回までに7航海点検の手順マニュアルを共有予定。</div>
+  </div>
+
+  <div class="pdf-foot">
+    <span>屋形船あみ達　船長チェックシート</span>
+    <span>Page 1 / 1</span>
+  </div>
+
+</div>
+
+</body>
+</html>

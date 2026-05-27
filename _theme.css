@@ -1,0 +1,19 @@
+/* 共通テーマ：ベージュ × 深紅 */
+:root{
+  --bg:#F5EFE6;
+  --bg-card:#FFFFFF;
+  --bg-hint:#FBF5EC;
+  --accent:#8B2E2E;
+  --accent-soft:#B85454;
+  --hint-text:#A0522D;
+  --ink:#2B2B2B;
+  --muted:#7A7065;
+  --line:#D9CFC1;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif;
+  font-size:14px;line-height:1.55;}
+button{font-family:inherit;cursor:pointer;}
+input,select,textarea{font-family:inherit;}
+.tag-mock{position:fixed;top:6px;right:6px;background:#000;color:#fff;font-size:10px;padding:2px 6px;border-radius:3px;opacity:.55;z-index:9999;}

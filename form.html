@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>入力フォーム モック</title>
+<link rel="stylesheet" href="_theme.css">
+<style>
+  body{padding:0 0 90px;}
+  header{background:var(--accent);color:#fff;padding:14px 16px;text-align:center;font-weight:700;font-size:17px;letter-spacing:.05em;
+    box-shadow:0 2px 6px rgba(0,0,0,.08);}
+  .meta{background:var(--bg-card);border:1px solid var(--line);border-radius:10px;margin:14px 12px;padding:14px 12px 12px;}
+  .meta .row{display:grid;grid-template-columns:1fr;gap:4px;margin:8px 0;}
+  .meta label{color:var(--muted);font-size:12px;}
+  .meta label .req{color:var(--accent);margin-left:4px;font-weight:700;}
+  .meta-title{font-size:11px;color:var(--accent);font-weight:700;letter-spacing:.12em;margin:14px 0 2px;padding-bottom:4px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;}
+  .meta-title:first-child{margin-top:0;}
+  .meta-title::before{content:"";display:inline-block;width:3px;height:11px;background:var(--accent);}
+  .meta input,.meta select{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:15px;background:#fff;color:var(--ink);}
+  section.group{background:var(--bg-card);border:1px solid var(--line);border-radius:10px;margin:0 12px 12px;overflow:hidden;}
+  .group-head{background:var(--accent);color:#fff;padding:9px 12px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:8px;}
+  .group-head .num{background:rgba(255,255,255,.22);border-radius:999px;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;}
+  .observation{padding:10px 12px 4px;border-bottom:1px dashed var(--line);}
+  .observation:last-of-type{border-bottom:none;}
+  .observation .label{color:var(--muted);font-size:11px;margin-bottom:4px;letter-spacing:.05em;}
+  .observation .crit{font-size:13.5px;line-height:1.5;}
+  .observation .hint{display:inline-block;margin-top:5px;background:var(--bg-hint);color:var(--hint-text);font-size:12px;padding:3px 8px;border-radius:4px;border:1px solid #E8D9C5;}
+  .biko{padding:10px 12px 12px;}
+  .biko label{display:block;color:var(--muted);font-size:12px;margin-bottom:4px;}
+  .biko textarea{width:100%;min-height:70px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#FBFAF7;color:var(--ink);resize:vertical;}
+  .actions{position:fixed;bottom:0;left:0;right:0;background:rgba(245,239,230,.96);backdrop-filter:blur(6px);padding:10px 12px;display:flex;gap:8px;border-top:1px solid var(--line);}
+  .actions button{flex:1;padding:12px 0;border-radius:8px;border:1px solid var(--line);background:#fff;font-weight:700;font-size:14px;}
+  .actions .primary{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .actions .ghost{background:transparent;}
+</style>
+</head>
+<body>
+<div class="tag-mock">MOCK / 375×812 想定</div>
+<header>船長チェックシート</header>
+
+<div class="meta">
+  <div class="meta-title">日時</div>
+  <div class="row">
+    <label>日付<span class="req">必須</span></label>
+    <input type="date" value="2026-05-24">
+  </div>
+
+  <div class="meta-title">新人船長（評価される人）</div>
+  <div class="row">
+    <label>新人船長<span class="req">必須</span></label>
+    <select><option>飯野</option><option>古村</option><option>小川</option></select>
+  </div>
+  <div class="row">
+    <label>船名<span class="req">必須</span></label>
+    <select><option>大和</option></select>
+  </div>
+
+  <div class="meta-title">乗降場所</div>
+  <div class="row">
+    <label>乗船桟橋<span class="req">必須</span></label>
+    <select><option>一之江</option></select>
+  </div>
+  <div class="row">
+    <label>降船桟橋<span class="req">必須</span></label>
+    <select><option>吾妻橋</option></select>
+  </div>
+
+  <div class="meta-title">評価担当（評価する人）</div>
+  <div class="row">
+    <label>評価担当<span class="req">必須</span></label>
+    <select><option>もりお</option></select>
+  </div>
+</div>
+
+<section class="group">
+  <div class="group-head"><span class="num">1</span><span>出船前準備</span></div>
+  <div class="observation">
+    <div class="crit">無線や船の電話の電源立ち上げ</div>
+  </div>
+  <div class="observation">
+    <div class="crit">出船前点検簿に記載してある事項の確認</div>
+  </div>
+  <div class="observation">
+    <div class="crit">船の始動確認時、異音や水が排出されているか</div>
+  </div>
+  <div class="observation">
+    <div class="crit">船の喫水は過度に沈んでいないか</div>
+  </div>
+  <div class="observation">
+    <div class="crit">朝礼で注意事故や安全確認などの共有</div>
+  </div>
+  <div class="biko">
+    <label>備考（任意・上記5観点をまとめて1件）</label>
+    <textarea placeholder="例：点検簿の項目が1件抜けていた。朝礼で潮位情報を全員に共有できていた。"></textarea>
+  </div>
+</section>
+
+<section class="group">
+  <div class="group-head"><span class="num">2</span><span>船長とお客さんの関わり方</span></div>
+  <div class="observation">
+    <div class="crit">責任感のあるお客様対応</div>
+  </div>
+  <div class="observation">
+    <div class="crit">乗降時の補佐</div>
+  </div>
+  <div class="observation">
+    <div class="crit">走行中に危険行為があった場合にしっかり注意できるか</div>
+  </div>
+  <div class="biko">
+    <label>備考（任意）</label>
+    <textarea placeholder=""></textarea>
+  </div>
+</section>
+
+<section class="group">
+  <div class="group-head"><span class="num">3</span><span>7航海点検</span></div>
+  <div class="observation">
+    <div class="crit">船のその時の状態にあった適切な点検が出来る</div>
+  </div>
+  <div class="biko">
+    <label>備考（任意）</label>
+    <textarea placeholder=""></textarea>
+  </div>
+</section>
+
+<section class="group">
+  <div class="group-head"><span class="num">4</span><span>離岸着岸</span></div>
+  <div class="observation">
+    <div class="crit">潮や風、船の特性を活かした安全な離着岸が出来ているか</div>
+    <span class="hint">▶ 上手くつけるより安全につけてる事を意識</span>
+  </div>
+  <div class="observation">
+    <div class="crit">スラスターを過度に使用しないなど</div>
+  </div>
+  <div class="biko">
+    <label>備考（任意）</label>
+    <textarea placeholder="気付いた事・良かった点・改善点など"></textarea>
+  </div>
+</section>
+
+<section class="group">
+  <div class="group-head"><span class="num">5</span><span>航行ルート</span></div>
+  <div class="observation">
+    <div class="crit">正規のルートを航行する</div>
+    <span class="hint">▶ 干潮時や船の往来時、安全な距離感と譲り合いが出来ている</span>
+  </div>
+  <div class="observation">
+    <div class="crit">お台場入港出港時、安全に航行出来ている</div>
+  </div>
+  <div class="biko">
+    <label>備考（任意）</label>
+    <textarea placeholder=""></textarea>
+  </div>
+</section>
+
+<section class="group">
+  <div class="group-head"><span class="num">6</span><span>荒川の横断</span></div>
+  <div class="observation">
+    <div class="crit">天候が荒れた日など、船の特性や潮位を理解して適正な航行ルートを走行している</div>
+  </div>
+  <div class="observation">
+    <div class="crit">自走が不安な場合など他船の後ろを走るなど、仲間と連携をとるなど柔軟な対応が出来る</div>
+  </div>
+  <div class="biko">
+    <label>備考（任意）</label>
+    <textarea placeholder=""></textarea>
+  </div>
+</section>
+
+<section class="group">
+  <div class="group-head"><span class="num">7</span><span>潮位認識</span></div>
+  <div class="observation">
+    <div class="crit">潮位を認識して正しいルートを航行出来ている</div>
+  </div>
+  <div class="observation">
+    <div class="crit">船の往来が多い日、天候が悪い日、橋脚の仮設足場など状況に応じて、船員に指示し安全な柵の立て下ろしが出来る</div>
+  </div>
+  <div class="biko">
+    <label>備考（任意）</label>
+    <textarea placeholder=""></textarea>
+  </div>
+</section>
+
+<section class="group">
+  <div class="group-head"><span class="num">8</span><span>航行速度と引き波</span></div>
+  <div class="observation">
+    <div class="crit">徐行すべき箇所で、船の特性にあった回転数で引き波が消える早目のタイミングで徐行している</div>
+  </div>
+  <div class="observation">
+    <div class="crit">他船とすれ違う際も同様に出来ている</div>
+  </div>
+  <div class="observation">
+    <div class="crit">船体やエンジンに負荷のかからない回転数、燃料効率の良い回転数で航行出来ているか</div>
+  </div>
+  <div class="biko">
+    <label>備考（任意）</label>
+    <textarea placeholder=""></textarea>
+  </div>
+</section>
+
+<section class="group">
+  <div class="group-head"><span class="num">9</span><span>お台場停泊・入港出港</span></div>
+  <div class="observation">
+    <div class="crit">潮位や天気、他船との距離感、お客様の景観のいい場所に停泊出来ているか</div>
+  </div>
+  <div class="observation">
+    <div class="crit">入出港時、法令に適した安全な譲り合いで入港出港出来ているか</div>
+  </div>
+  <div class="biko">
+    <label>備考（任意）</label>
+    <textarea placeholder=""></textarea>
+  </div>
+</section>
+
+<section class="group">
+  <div class="group-head"><span class="num">10</span><span>桟橋着岸</span></div>
+  <div class="observation">
+    <div class="crit">船と桟橋に適したフェンダーの位置や、乗船しやすいロープワークが出来ている</div>
+  </div>
+  <div class="observation">
+    <div class="crit">船員とコミュニケーションをとって、指示出しが出来ているか</div>
+  </div>
+  <div class="biko">
+    <label>備考（任意）</label>
+    <textarea placeholder=""></textarea>
+  </div>
+</section>
+
+<section class="group">
+  <div class="group-head"><span class="num">11</span><span>一之江帰船後</span></div>
+  <div class="observation">
+    <div class="crit">ロープ・メインスイッチ・フェンダー等の確認</div>
+  </div>
+  <div class="observation">
+    <div class="crit">戸締り確認</div>
+  </div>
+  <div class="observation">
+    <div class="crit">航行して船に異常は無かったか、ある場合は緊急性が高いものはLINE、それ以外はノートに記載</div>
+  </div>
+  <div class="biko">
+    <label>備考（任意）</label>
+    <textarea placeholder=""></textarea>
+  </div>
+</section>
+
+<div class="meta">
+  <div class="row">
+    <label>全体備考（任意）</label>
+    <textarea rows="3" style="width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#FBFAF7;color:var(--ink);"></textarea>
+  </div>
+</div>
+
+<p style="text-align:center;color:var(--muted);font-size:11px;padding:0 16px;">入力内容は自動的に下書き保存されます</p>
+
+<div class="actions">
+  <button class="ghost" onclick="if(confirm('入力内容をクリアしますか？')) location.reload();">クリア</button>
+  <button class="primary" onclick="submit()">送信</button>
+</div>
+
+<div id="dlg-mask" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:9000;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#fff;border-radius:12px;width:100%;max-width:340px;padding:24px;text-align:center;">
+    <div style="font-size:32px;color:var(--accent);margin-bottom:8px;">✓</div>
+    <div style="font-weight:700;font-size:17px;margin-bottom:6px;">送信完了</div>
+    <div style="color:var(--muted);font-size:13px;margin-bottom:18px;">受付番号：#312</div>
+    <button onclick="location.reload()" style="width:100%;background:var(--accent);color:#fff;border:none;padding:11px 0;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;">新規入力</button>
+    <a href="index.html" style="display:block;margin-top:10px;color:var(--muted);font-size:12px;text-decoration:none;">モック一覧に戻る</a>
+  </div>
+</div>
+
+<script>
+function submit(){
+  document.getElementById('dlg-mask').style.display = 'flex';
+}
+</script>
+</body>
+</html>
